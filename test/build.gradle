@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'maven'
 
 repositories {
     jcenter()
@@ -22,3 +23,16 @@ sourceSets {
     }
 }
 
+
+uploadArchives {
+    repositories {
+       mavenDeployer {
+         repository(url: "http://localhost:8081/nexus/content/repositories/snapshots") {
+           authentication(userName: "admin", password: "admin123")
+         }
+         pom.version = "1.0-SNAPSHOT"
+         pom.artifactId = "test"
+         pom.groupId = "com.example"
+       }
+    }
+}
