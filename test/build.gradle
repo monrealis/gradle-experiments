@@ -18,6 +18,7 @@ sourceSets {
             compileClasspath += main.output + test.output
             runtimeClasspath += main.output + test.output
             srcDir file('src/it/java')
+            srcDir file('src/main/java')
         }
         resources.srcDir file('src/it/resources')
     }
